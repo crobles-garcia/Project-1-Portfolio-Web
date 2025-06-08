@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cindy Robles-Garcia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Cindy Robles-Garcia</h1>
+        <p>Analytical Chemist | Hardworker | Lifelong Learner</p>
+        <img src="img/PIC.png" alt="Cindy Robles-Garcia">
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm Cindy. I recently completed my Bachelor's in Chemistry and currently work in the analytical lab, exploring chromatography, spectroscopy, and more. I'm also passionate about health, wellness, and continuous growth.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HPLC, GC-MS, UV-Vis Spectroscopy</li>
+                <li>Wet Chemistry Techniques & Titrations</li>
+                <li>Chromatographic Method Development</li>
+                <li>Skincare Formulation & Ingredient Knowledge</li>
+                <li>Technical Reporting & Data Analysis</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: croblesg@uwyo.edu</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/cindy-robles-garcia-b0643631b" target="_blank">cindy-robles-garcia</a></p>
+            <p>GitHub: <a href="https://github.com/crobles-garcia" target="_blank">@crobles-garcia</a></p>
+        </section>
+
+        <section>
+            <h2>Resume</h2>
+            <p><a href="img/Cindy_Robles_Resume.pdf" target="_blank">Download my resume (PDF)</a></p>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Cindy Robles-Garcia</p>
+    </footer>
+
+    <div id="link-popup">
+    <a href="#" onclick="alert('In loving memory of my companion, Link 🐾❤️'); return false;">
+        <img src="img/IMG_9037.jpg" alt="Link the Cat">
+    </a>
+</div>
+<script>
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
