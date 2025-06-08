@@ -1,86 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cindy Robles-Garcia</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <ul class="navbar">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <header>
-        <h1>Cindy Robles-Garcia</h1>
-        <p>Analytical Chemist | Hardworker | Lifelong Learner</p>
-        <img src="img/PIC.png" alt="Cindy Robles-Garcia">
-    </header>
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi! I'm Cindy. I recently completed my Bachelor's in Chemistry and currently work in the analytical lab, exploring chromatography, spectroscopy, and more. I'm also passionate about health, wellness, and continuous growth.</p>
-        </section>
+/* Body Background & Font */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('img/galaxy.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #000010;
+    color: #E0E0E0;
+    line-height: 1.6;
+}
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>HPLC, GC-MS, UV-Vis Spectroscopy</li>
-                <li>Wet Chemistry Techniques & Titrations</li>
-                <li>Chromatographic Method Development</li>
-                <li>Skincare Formulation & Ingredient Knowledge</li>
-                <li>Technical Reporting & Data Analysis</li>
-            </ul>
-        </section>
+/* Navigation Bar */
+nav {
+    background-color: rgba(0, 0, 50, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: croblesg@uwyo.edu</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/cindy-robles-garcia-b0643631b" target="_blank">cindy-robles-garcia</a></p>
-            <p>GitHub: <a href="https://github.com/crobles-garcia" target="_blank">@crobles-garcia</a></p>
-        </section>
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    padding: 1em 0;
+}
 
-        <section>
-            <h2>Resume</h2>
-            <p><a href="img/Cindy_Robles_Resume.pdf" target="_blank">Download my resume (PDF)</a></p>
-        </section>
-    </main>
+.navbar li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
-    <footer>
-        <p>&copy; 2025 Cindy Robles-Garcia</p>
-    </footer>
+.navbar li a:hover {
+    color: #87CEFA;
+}
 
-    <div id="link-popup">
-        <a href="#" onclick="alert('In loving memory of my companion, Link 🐾❤️'); return false;">
-            <img src="img/IMG_9037.jpg" alt="Link the Cat">
-        </a>
-    </div>
+.navbar a.active {
+    color: #00ffff;
+    border-bottom: 2px solid #00ffff;
+}
 
-    <script>
-        const sections = document.querySelectorAll("main section[id]");
-        const navLinks = document.querySelectorAll(".navbar a");
+/* Header */
+header {
+    text-align: center;
+    padding: 2em 1em;
+    background-color: rgba(0, 0, 50, 0.75);
+}
 
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (pageYOffset >= sectionTop) {
-                    current = section.getAttribute("id");
-                }
-            });
+header img {
+    border-radius: 50%;
+    border: 2px solid #aaa;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: 10px;
+}
 
-            navLinks.forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href").includes(current)) {
-                    link.classList.add("active");
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+/* Main Container */
+main {
+    max-width: 900px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 15px;
+    box-shadow: 0 0 15px #6cc;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: rgba(20, 20, 20, 0.8);
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+/* Links */
+a {
+    color: #87CEFA;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Skills Bullets (Flask Emoji) */
+#skills ul {
+    list-style: none;
+    padding-left: 1em;
+}
+
+#skills li {
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 0.75em;
+}
+
+#skills li::before {
+    content: "🧪";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+}
+
+/* Link the Cat Pop-Up */
+#link-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px white;
+    animation: float 5s infinite ease-in-out;
+    z-index: 1001;
+}
+
+#link-popup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
